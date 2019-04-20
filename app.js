@@ -10,7 +10,7 @@ const api = require('./bankapi/bankservice');
 app.use(bodyparser.json());
 
 //port no
-const port =  3000;
+const PORT = process.env.PORT || 3000;
 
 //routes
 app.use('/bankapi',api);
@@ -21,6 +21,6 @@ app.get('/', (request, response) => {
   });
 
 //binding server with this port
-app.listen(port,()=>{
-    console.log('Server started at port: '+port);
+app.listen(PORT,()=>{
+    console.log('Server started at port: '+PORT);
 });
