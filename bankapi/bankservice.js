@@ -19,9 +19,9 @@ router.get('/details/:ifsc',(req,res)=>{
     });
 });
 //Retrieving Bank details by city and names
-router.get('/details/:city/:bank_name',(req,res)=>{
-    var city = req.params.city;
-    var bank_name = req.params.bank_name;
+router.get('/details',(req,res)=>{
+    var city = req.query.city;
+    var bank_name = req.query.bank_name;
     console.log('city: '+city+' bank_name: '+bank_name);
     poolConnection.query('SELECT * FROM bank_branches WHERE city = $1 AND bank_name =$2', [city,bank_name],(err,result)=>{
         if(err){
